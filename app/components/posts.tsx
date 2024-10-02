@@ -5,32 +5,27 @@ export function BlogPosts() {
   let allBlogs = getBlogPosts()
 
   return (
-    <div>
-      {allBlogs
-        .sort((a, b) => {
-          if (
-            new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
-          ) {
-            return -1
-          }
-          return 1
-        })
-        .map((post) => (
-          <Link
-            key={post.slug}
-            className="flex flex-col space-y-1 mb-4"
-            href={`/blog/${post.slug}`}
-          >
-            <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
-              <p className="text-neutral-600 dark:text-neutral-400 w-[100px] tabular-nums">
-                {formatDate(post.metadata.publishedAt, false)}
-              </p>
-              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-                {post.metadata.title}
-              </p>
-            </div>
-          </Link>
-        ))}
+    <div className="bg-[#1c1c1c] text-gray-300 p-6 font-mono">
+      <h2 className="text-2xl font-semibold mb-4 text-[#d87d4a]">crazy ramblings</h2>
+      <div className="space-y-2">
+        {allBlogs
+          .sort((a, b) => new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime())
+          .map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="block hover:bg-gray-800 transition-colors duration-200 rounded p-2"
+            >
+              <div className="flex items-baseline">
+                <span className="text-[#d87d4a] w-24 flex-shrink-0">
+                  {formatDate(post.metadata.publishedAt, false)}
+                </span>
+                <span className="text-[#d87d4a] mx-2">·························  </span>
+                <span className="text-gray-100">{post.metadata.title}</span>
+              </div>
+            </Link>
+          ))}
+      </div>
     </div>
   )
 }

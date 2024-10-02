@@ -7,10 +7,11 @@ import { Home, FileText, Film, Twitter, Github, MapPinIcon, ArrowUpDown,Linkedin
 import { MdKeyboardReturn } from 'react-icons/md'
 import UsageStatsDashboard from './usagestats'
 import AsciiArt from './noblogs'
+
 export default function Component() {
    const [open, setOpen] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(0);
-
+  
     const items = [
       { value: "home", label: "home", icon: Home },
       { value: "blog", label: "blog", icon: FileText },
@@ -158,6 +159,7 @@ export default function Component() {
 
         <div className="grid md:grid-cols-2 gap-8">
           <AsciiArt />
+ 
           <UsageStatsDashboard />
         </div>
       </main>
