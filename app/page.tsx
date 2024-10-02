@@ -22,16 +22,20 @@ export default function Component() {
       { value: "linkedin", label: "linkedin", icon: LinkedinIcon },
     ];
 
-    const handleSelect = (value: string) => {
+    const handleNavigation = (path) => {
+      window.location.href = path;
+    };
+  
+    const handleSelect = (value) => {
       switch (value) {
         case "home":
-          window.location.href = "/";
+          handleNavigation("/");
           break;
         case "blog":
-          window.location.href = "/blog";
+          handleNavigation("/blog");
           break;
         case "stuff i use":
-          window.location.href = "/uses";
+          handleNavigation("/uses");
           break;
         case "twitter":
           window.open("https://x.com/covix2772", "_blank");
@@ -48,6 +52,7 @@ export default function Component() {
       }
       setOpen(false);
     };
+  
 
     useEffect(() => {
       const down = (e: KeyboardEvent) => {
@@ -79,21 +84,21 @@ export default function Component() {
     }, [open, selectedIndex]);
 
 
-  return (
-    <div className="min-h-screen bg-[#1c1c1c] text-[#a9a9a9] font-mono">
-      <header className="p-4 flex justify-between items-center">
-        <nav>
-          <ul className="flex space-x-4">
-            <li><a href="#" className="text-[#d87d4a]">home</a></li>
-            <li><a href="#" className="text-[#d87d4a]">blog</a></li>
-            <li><a href="#" className="text-[#d87d4a]">stuff i use</a></li>
-          </ul>
-        </nav>
-        <div className="flex space-x-2">
-          <span className="text-[#d87d4a]">/ to navigate</span>
-          <span className="text-[#d87d4a]"></span>
-        </div>
-      </header>
+    return (
+      <div className="min-h-screen bg-[#1c1c1c] text-[#a9a9a9] font-mono">
+        <header className="p-4 flex justify-between items-center">
+          <nav>
+            <ul className="flex space-x-4">
+              <li><a href="#" onClick={() => handleNavigation("/")} className="text-[#d87d4a]">home</a></li>
+              <li><a href="#" onClick={() => handleNavigation("/blog")} className="text-[#d87d4a]">blog</a></li>
+              <li><a href="#" onClick={() => handleNavigation("/uses")} className="text-[#d87d4a]">stuff i use</a></li>
+            </ul>
+          </nav>
+          <div className="flex space-x-2">
+            <span className="text-[#d87d4a]">/ to navigate</span>
+            <span className="text-[#d87d4a]"></span>
+          </div>
+        </header>
 
       <main className="p-8">
         <h1 className="text-4xl text-[#d87d4a] mb-4">V</h1>
