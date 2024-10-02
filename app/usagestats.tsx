@@ -1,8 +1,16 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+type UsageData = {
+  time: string;
+  keypresses: number;
+  mouseMovement: number;
+  middleClicks: number;
+  rightClicks: number;
+  leftClicks: number;
+};
 
 const generateData = () => {
-  const data = [];
+  const data: UsageData[] = [];
   const startTime = new Date(2024, 0, 1, 15, 0, 0); // Start at 3:00 PM
   for (let i = 0; i < 360; i += 15) { // 72 data points (every 15 minutes for 18 hours)
     const time = new Date(startTime.getTime() + i * 60000);
