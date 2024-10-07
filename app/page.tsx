@@ -148,7 +148,7 @@ export default function Component() {
               <div>
                 <h3 className="text-[#2c5557] font-bold"><a href="https://github.com/covixx/Magellan" className="text-[#ff6b6b] ">Ouranous</a></h3>
                 <p>
-                  [WIP]
+                  A micro-blogging social media platform with a unique sense of community and personality
                 </p>
               </div>
               <div>
