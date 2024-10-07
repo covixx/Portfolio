@@ -152,9 +152,9 @@ export default function Component() {
                 </p>
               </div>
               <div>
-                <h3 className="text-[#2c5557] font-bold"><a href="https://github.com/covixx/Magellan" className="text-[#ff6b6b] ">Discover Better</a></h3>
+                <h3 className="text-[#2c5557] font-bold"><a href="https://monkeblocker.koyeb.app" className="text-[#ff6b6b] ">Monke Blocker</a></h3>
                 <p>
-                  Find better music 
+                  A real-time bot detection and blocking tool that uses ML to classify and detect bots on Twitter
                 </p>
               </div>
               <div className='space-y-4'></div><a href="https://github.com/covixx?tab=repositories" className="text-[#ff6b6b] ">all projects →</a>
