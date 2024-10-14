@@ -35,13 +35,22 @@ The above is an example of a General Purpose Allocator, a generally-safe allocat
 
 ## The bad, and the ugly
 
-&nbsp;&nbsp;&nbsp;&nbsp; \> The ecosystem is barren. It's not a fault of the language, but simply a byproduct of its age and the limited resources the community has. If you wish to do anything complicated, you will need to either do it by hand, or import a C library. For example, Zig doesnt have a de-facto GUI library like C/C++ do. 
+&nbsp;&nbsp;&nbsp;&nbsp; \> The ecosystem is barren. It's not a fault of the language, but simply a byproduct of its age and the limited community. If you wish to do anything complicated, you will need to either do it by hand, or import a C library. For example, Zig doesnt have a de-facto GUI library like C/C++ do. This bit me in the ass when I was working on my first Zig project, and had to write ~350 lines of code to create a simple buffer for directory navigation. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;  \> The language is still pre-alpha, trying to migrate from LLVM, and has bi-yearly release cycles. This means a lot of the code you write is going to keep breaking until there's a stable version of Zig, which doesn't seem likely before late 2025. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;  \> There's no async (yet). I personally haven't found this to be a significant problem so far ; maybe that's just skill issues.
+&nbsp;&nbsp;&nbsp;&nbsp;  \> There's no async (yet). I haven't found this to be a significant problem so far ; but maybe that's just skill issues.
 
 &nbsp;&nbsp;&nbsp;&nbsp;  \> The lack of resources is a pain in the ass if you get stuck doing something hard. Due to the ever-evolving nature of the language, LLMs and online resources simply can't keep up. A lot of the answers I looked at whenever I got stuck were already outdated. This is slowly improving thanks to the online communities (mainly Discord and Twitter) but I suspect it will stay this way until there's a stable release.
+
+&nbsp;&nbsp;&nbsp;&nbsp;  \> This depends on your perspective, but Zig is a verbose language. Everything that should be said, has to be said. I personally don't dislike it, but it can get tedious pretty quickly. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;  \> Zig Language Server is pretty lacklustre and barebones, and is best-served to deal with simple errors. It cannot catch compile-time errors, nor simple typos like this.
+```
+    var myList = std.ArrayList(i32).init(std.testing.allocator);
+    defer myList.deini();
+```
+I don't know if this is due to the language being comptime in nature, or ZLS being a relatively new project, or something else entirely. Simply put, if you have previous experience with an established language's LSP, ZLS' capabilities will come as a bit of a shock. 
  
 
 ## Zig's future
