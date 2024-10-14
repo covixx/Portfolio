@@ -8,31 +8,29 @@ Over the last 6 weeks, I've written about ~2500 lines of Zig code across two pro
 
 ## The case for Zig
 
-Zig posits itself as the 'C killer', and in my brief experience with the language I can see why. A lot of the headaches that developers seem to accept as C-isms - CMake, macros et c. - Zig tries to fix from the start. The build system in Zig is second to none. It's intuitive, malleable and cross-compiles out of the box. Macros are replaced by comptime ints.  The biggest selling point though in my opinion is how readable, simplistic and easy to pick up the language is. As someone who's never written any significant systems code before, and has limited coding experience in general, I can look at most Zig repositories and figure out what's going on. This is in stark contrast to my Rust experience, where the ugliness and the stiffness of the language pushed me away for the longest time. 
+Zig posits itself as the 'C killer'. While I don't entirely agree with its reasoning, I respect the ambition. There are several things Zig gets right over the C language. Many  of the headaches that are second nature in C - CMake, a billion macros, et c. - Zig tries to fix from the start. The build system in Zig is second to none. It's intuitive, malleable and cross-compiles out of the box. Macros are replaced by comptime ints, which have no size and can not be accessed at runtime. The biggest selling point though in my opinion is how readable, simplistic and easy to pick up the language is. As someone who's never written any significant systems code before, and has limited coding experience in general, I can look at most Zig repositories and figure out what's going on. This is in stark contrast to my Rust experience, where the ugliness and the stiffness of the language pushed me away for the longest time. 
 
 ## The good
 &nbsp;&nbsp;&nbsp;&nbsp; \>  Zig's memory management system is as clear-cut as it gets: You initialise an allocator, and then you get to decide who gets memory, and where. You are the memory zenith. As one hand gives, the other hand defers.
-
+<img src={imageUrl} alt="Image alt" />
 &nbsp;&nbsp;&nbsp;&nbsp; \> Zig is type-safe, but allows you to coerce variables. This has been a useful feature for me, as it makes passing variables to C libraries such as raylib significantly easier.
 
 &nbsp;&nbsp;&nbsp;&nbsp; \>  The std library in Zig is chock-full of wonderful built-in features and functions, from hashmaps to buffered prints to kernel operations.
 
 &nbsp;&nbsp;&nbsp;&nbsp; \> The interop with C libraries makes it a trivial matter to use any and all C libraries, which is a gamechanger as the C ecosystem is magnitudes more mature than Zig's. Several are built-in, but importing the others is just as easy. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;  \> I've mentioned readability and ease of use before, but it still impresses me a month later how easy it is to just do things in Zig.<br /> 
+&nbsp;&nbsp;&nbsp;&nbsp; \> I've mentioned readability and ease of use before, but it still impresses me a month later how easy it is to just do things in Zig.<br /> 
 
 
 ## The bad, and the ugly
 
-&nbsp;&nbsp;&nbsp;&nbsp;  \> The ecosystem is barren. It's not a fault of the language, but simply a byproduct of its age and the limited resources the community has. 
-&nbsp;&nbsp;&nbsp;&nbsp;  If you wish to do anything complicated, you will need to either do it by hand, or import a C library. 
-&nbsp;&nbsp;&nbsp;&nbsp;  For example, Zig doesnt have a de-facto GUI library like C/C++ do. 
+&nbsp;&nbsp;&nbsp;&nbsp; \> The ecosystem is barren. It's not a fault of the language, but simply a byproduct of its age and the limited resources the community has. If you wish to do anything complicated, you will need to either do it by hand, or import a C library. For example, Zig doesnt have a de-facto GUI library like C/C++ do. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;  \> The language is still pre-alpha, trying to migrate from LLVM, and has bi-yearly release cycles. This means almost all code you write is going to &nbsp;&nbsp;&nbsp;&nbsp;  keep breaking until there's a stable version of Zig, which doesn't seem likely before late 2025. <br />
+&nbsp;&nbsp;&nbsp;&nbsp;  \> The language is still pre-alpha, trying to migrate from LLVM, and has bi-yearly release cycles. This means a lot of the code you write is going to keep breaking until there's a stable version of Zig, which doesn't seem likely before late 2025. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;  \> There's no async (yet). <br />
+&nbsp;&nbsp;&nbsp;&nbsp;  \> There's no async (yet). I personally haven't found this to be a significant problem so far ; maybe that's just skill issues.
 
-&nbsp;&nbsp;&nbsp;&nbsp;  \> The lack of resources is a pain in the ass if you get stuck doing something hard. Due to the ever-evolving nature of the language, LLMs and online resources simply can't keep up. A lot of the answers I looked at whenever I got stuck were already outdated. This is slowly improving thanks to the Discord community and other resources popping up (like the Zig twitter community) but I suspect it will stay this way until there's a stable release. <br />
+&nbsp;&nbsp;&nbsp;&nbsp;  \> The lack of resources is a pain in the ass if you get stuck doing something hard. Due to the ever-evolving nature of the language, LLMs and online resources simply can't keep up. A lot of the answers I looked at whenever I got stuck were already outdated. This is slowly improving thanks to the online communities (mainly Discord and Twitter) but I suspect it will stay this way until there's a stable release.
  
 
 ## Zig's future
