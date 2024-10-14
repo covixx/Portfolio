@@ -11,13 +11,21 @@ Over the last 6 weeks, I've written about ~2500 lines of Zig code across two pro
 Zig posits itself as the 'C killer'. While I don't entirely agree with its reasoning, I respect the ambition. Many of the headaches that are second nature in C - CMake, macros, et c. - Zig tries to fix from the start. The build system in Zig is second to none. It's intuitive, malleable and cross-compiles out of the box. Macros are replaced by comptime ints, which have no size and can not be accessed at runtime. The biggest selling point though in my opinion is how readable, simplistic and easy to pick up the language is. As someone who's never written any significant systems code before, and has limited coding experience in general, I can look at most Zig repositories and figure out what's going on. This is in stark contrast to my Rust experience, where the ugliness and the stiffness of the language pushed me away for the longest time. 
 
 ## The good
-&nbsp;&nbsp;&nbsp;&nbsp; \>  Zig's memory management system is as clear-cut as it gets: You initialise an allocator, and then you get to decide who gets memory, and where. You are the memory zenith. As one hand gives, the other hand defers.
+&nbsp;&nbsp;&nbsp;&nbsp; \>  Zig's memory management system is as clear-cut as it gets: You initialise one allocator for the entire program, and then you get to decide who gets memory, and where. You are the memory zenith. As one hand gives, the other hand defers.
+``` var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+    defer _ = gpa.deinit();
+    const allocator = gpa.allocator();
+```
+The above is an example of a General Purpose Allocator, a generally-safe allocator that is designed to prevent memory leaks but still be faster than page allocators. 
 
-&nbsp;&nbsp;&nbsp;&nbsp; \> Zig is type-safe, but allows you to coerce variables. This has been a useful feature for me, as it makes passing variables to C libraries such as raylib significantly easier.
+&nbsp;&nbsp;&nbsp;&nbsp; \> Zig is type-safe, but allows you to coerce variables. This has been a useful feature for me personally, as it makes passing variables to C libraries such as raylib significantly easier.
 
 &nbsp;&nbsp;&nbsp;&nbsp; \>  The std library in Zig is chock-full of wonderful built-in features and functions, from hashmaps to buffered prints to kernel operations.
 
-&nbsp;&nbsp;&nbsp;&nbsp; \> The interop with C libraries makes it a trivial matter to use any and all C libraries, which is a gamechanger as the C ecosystem is magnitudes more mature than Zig's. Several are built-in, but importing the others is just as easy. 
+&nbsp;&nbsp;&nbsp;&nbsp; \> The interop with C libraries makes it a trivial matter to use any and all C libraries, which is a gamechanger as the C ecosystem is magnitudes more mature than Zig's. Several are built-in, but importing the others is just as easy. Shown below is an example of the same.
+```const c_header = @cImport({
+    @cInclude("stdlib.h");
+});```
 
 &nbsp;&nbsp;&nbsp;&nbsp; \> I've mentioned readability and ease of use before, but it still impresses me a month later how easy it is to just do things in Zig.<br /> 
 
