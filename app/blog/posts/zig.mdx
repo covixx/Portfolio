@@ -12,7 +12,8 @@ Zig posits itself as the 'C killer'. While I don't entirely agree with its reaso
 
 ## The good
 &nbsp;&nbsp;&nbsp;&nbsp; \>  Zig's memory management system is as clear-cut as it gets: You initialise one allocator for the entire program, and then you get to decide who gets memory, and where. You are the memory zenith. As one hand gives, the other hand defers.
-``` var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+``` 
+    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
     defer _ = gpa.deinit();
     const allocator = gpa.allocator();
 ```
@@ -23,9 +24,11 @@ The above is an example of a General Purpose Allocator, a generally-safe allocat
 &nbsp;&nbsp;&nbsp;&nbsp; \>  The std library in Zig is chock-full of wonderful built-in features and functions, from hashmaps to buffered prints to kernel operations.
 
 &nbsp;&nbsp;&nbsp;&nbsp; \> The interop with C libraries makes it a trivial matter to use any and all C libraries, which is a gamechanger as the C ecosystem is magnitudes more mature than Zig's. Several are built-in, but importing the others is just as easy. Shown below is an example of the same.
-```const c_header = @cImport({
+```
+const c_header = @cImport({
     @cInclude("stdlib.h");
-});```
+});
+```
 
 &nbsp;&nbsp;&nbsp;&nbsp; \> I've mentioned readability and ease of use before, but it still impresses me a month later how easy it is to just do things in Zig.<br /> 
 
