@@ -1,20 +1,16 @@
 ---
-title: 'Spaces vs. Tabs: The Indentation Debate Continues'
-publishedAt: '2024-04-08'
-summary: 'Explore the enduring debate between using spaces and tabs for code indentation, and why this choice matters more than you might think.'
+title: 'My thoughts on Zig'
+publishedAt: '2024-10-14'
+summary: 'The good, the bad and the ugly of Zig and its ecosystem.'
 ---
 
-The debate between using spaces and tabs for indentation in coding may seem trivial to the uninitiated, but it is a topic that continues to inspire passionate discussions among developers. This seemingly minor choice can affect code readability, maintenance, and even team dynamics.
+Over the last 6 weeks, I've written about ~2500 lines of Zig code across two projects. These are my takeaways, as someone who's never written a systems language seriously before.
 
-Let's delve into the arguments for both sides and consider why this debate remains relevant in the software development world.
+## The Case for Zig
 
-## The Case for Spaces
+Zig posits itself as the 'C killer', and in my brief experience with the language I can see why. A lot of the headaches that developers seem to accept as C-isms - CMake, macros et c. - Zig tries to fix from the start. The build system in Zig is second to none. It's intuitive, malleable and cross-compiles out of the box. Macros are replaced by comptime ints. Zig also offers a handful of data structures with its std library, which is always a plus. The biggest selling point though in my opinion is how readable, simplistic and easy to pick up the language is. As someone who's never written any significant systems code before, and has limited coding experience in general, I can look at most Zig repositories and figure out what's going on. This is in stark contrast to my Rust experience, where the ugliness and the stiffness of the language pushed me away for the longest time. 
 
-Advocates for using spaces argue that it ensures consistent code appearance across different editors, tools, and platforms. Because a space is a universally recognized character with a consistent width, code indented with spaces will look the same no matter where it's viewed. This consistency is crucial for maintaining readability and avoiding formatting issues when code is shared between team members or published online.
-
-Additionally, some programming languages and style guides explicitly recommend spaces for indentation, suggesting a certain number of spaces (often two or four) per indentation level. Adhering to these recommendations can be essential for projects that aim for best practices in code quality and readability.
-
-## The Case for Tabs
+## The bad, and the ugly
 
 On the other side of the debate, proponents of tabs highlight the flexibility that tabs offer. Because the width of a tab can be adjusted in most text editors, individual developers can choose how much indentation they prefer to see, making the code more accessible and comfortable to read on a personal level. This adaptability can be particularly beneficial in teams with diverse preferences regarding code layout.
 
